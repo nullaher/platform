@@ -1,0 +1,3 @@
+table { color: #339; line-height: 22px; }
+table, th, td { border: 1px solid #ccc; border-collapse: collapse; padding: 3px;}
+table th { background-color: #ececec; }

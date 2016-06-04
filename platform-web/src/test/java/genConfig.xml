@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+  <context id="context1" > 
+	 <!-- 控制注释 -->
+        <commentGenerator>
+            <!-- 是否去除所有自动生成的注释文件 -->
+            <property name="suppressAllComments" value="true" />
+            <!-- 是否去除所有自动生成的文件的时间戳，默认为false -->
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+	
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/test" userId="root" password="admin" />
+    <javaModelGenerator targetPackage="test" targetProject="platform-web" />
+    <sqlMapGenerator targetPackage="test" targetProject="platform-web" />
+    <javaClientGenerator targetPackage="test" targetProject="platform-web" type="XMLMAPPER" />
+    <table tableName="PB_CFG_INFO" schema="" alias="pci" domainObjectName="CfgInfo"
+          enableInsert="true"
+          enableDeleteByExample="true" enableDeleteByPrimaryKey="true"
+          enableUpdateByExample="true" enableUpdateByPrimaryKey="true" 
+          enableSelectByExample="true" enableCountByExample="true"
+          enableSelectByPrimaryKey="true" 
+          >
+        </table>
+  </context>
+</generatorConfiguration>

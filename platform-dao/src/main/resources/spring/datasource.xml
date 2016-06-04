@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/aop 
+						http://www.springframework.org/schema/aop/spring-aop.xsd
+						http://www.springframework.org/schema/context 
+						http://www.springframework.org/schema/context/spring-context.xsd
+						http://www.springframework.org/schema/tx 
+						http://www.springframework.org/schema/tx/spring-tx.xsd
+						http://www.springframework.org/schema/util 
+						http://www.springframework.org/schema/util/spring-util.xsd
+						">
+	<context:property-placeholder location="classpath*:/prop/*.properties" />
+	
+
+	<!-- <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> -->
+	<!-- <property name="locations"> -->
+	<!-- <list> -->
+	<!-- <value>classpath:/opt/demo/config/demo-db.properties</value> -->
+	<!-- <value>file:/opt/demo/config/demo-mq.properties</value> -->
+	<!-- <value>file:/opt/demo/config/demo-remote.properties</value> -->
+	<!-- </list> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+
+	<context:component-scan base-package="cn.nullah.platform.dao">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}"></property>
+		<property name="url" value="${jdbc.url}"></property>
+		<property name="username" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean>
+	
+<!-- 	 <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> -->
+<!--             <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/> -->
+<!--             <property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:orcllcx1"/> -->
+<!--             <property name="username" value="scott"/> -->
+<!--             <property name="password" value="123456"/> -->
+             <!-- 连接池启动时的初始值 -->
+<!--             <property name="initialSize" value="3"/> -->
+             <!-- 连接池的最大值 -->
+<!--              <property name="maxActive" value="500"/>  -->
+             <!-- 最大空闲值.当经过一个高峰时间后，连接池可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止 -->
+<!--             <property name="maxIdle" value="2"/> -->
+            <!--  最小空闲值.当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请 -->
+<!--             <property name="minIdle" value="1"/> -->
+<!--     </bean> -->
+
+	
+	
+	<!-- 配置事务异常封装 -->
+<!--    <bean id="persistenceExceptionTranslationPostProcessor"  -->
+<!--        class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" /> -->
+
+</beans>
