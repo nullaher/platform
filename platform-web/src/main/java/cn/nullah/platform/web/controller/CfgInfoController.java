@@ -5,13 +5,15 @@
 package cn.nullah.platform.web.controller;
 
 import java.util.List;
+
 import javax.annotation.Resource;
-import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import test.CfgInfo;
 import cn.nullah.platform.security.service.CfgInfoService;
 
