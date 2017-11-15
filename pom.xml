@@ -30,6 +30,7 @@
 		<module>platform-base</module>
 		<module>platform-web</module>
     	<module>platform-dao</module>
+    <module>platform-cfg</module>
   </modules>
 
 	<dependencyManagement>
